@@ -9,7 +9,7 @@ namespace Temporalio.Tests.Common.EnvConfig
 {
     /// <summary>
     /// Environment configuration tests following Python/TypeScript patterns for cross-SDK consistency.
-    /// Comprehensive 34-test suite covering all aspects of environment configuration.
+    /// Comprehensive test suite covering all aspects of environment configuration.
     /// </summary>
     public class ClientConfigTests : TestBase
     {

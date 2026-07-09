@@ -19,6 +19,10 @@ to docs, or any other relevant information.
 
 ## [Unreleased]
 
+### Added
+
+- Added AWS Lambda worker support packages, including OpenTelemetry helpers for Lambda workers.
+
 ### Fixed
 
 - Fixed `ClientEnvConfig` empty `OverrideEnvVars` handling so an explicit empty dictionary no
