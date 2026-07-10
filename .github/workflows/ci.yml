@@ -70,6 +70,10 @@ jobs:
         shell: bash
         run: printf 'PROTOC=%s\n' "$(mise which protoc)" >> "$GITHUB_ENV"
 
+      - name: Install nex-gen
+        if: ${{ matrix.checkTarget }}
+        run: cargo install --locked --version 0.1.5 --force nex-gen
+
       - name: Regen confirm unchanged
         if: ${{ matrix.checkTarget }}
         run: |
@@ -77,6 +81,7 @@ jobs:
           dotnet tool install --global --version '[20.1.2.1]' ClangSharpPInvokeGenerator
           ClangSharpPInvokeGenerator @src/Temporalio/Bridge/GenerateInterop.rsp
           dotnet run --project src/Temporalio.Api.Generator
+          dotnet run --project src/Temporalio.SystemNexus.Generator
           git add .
           git config --global core.safecrlf false
           git diff --cached > generator.diff
