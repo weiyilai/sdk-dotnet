@@ -19,6 +19,18 @@ to docs, or any other relevant information.
 
 ## [Unreleased]
 
+### Added
+
+- Added the experimental `TemporalWorkerOptions.PatchActivationCallback`, allowing workers to
+  decide whether a first non-replay `Workflow.Patched` call should activate a patch during rolling
+  deployments.
+
+### Changed
+
+- Hardened read-only workflow context enforcement so queries, update validators, and patch activation
+  callbacks cannot mutate handlers or workflow details, invoke patches, or schedule workflow work.
+  Patch activation callbacks also cannot use workflow randomness or issue workflow commands.
+
 ### [1.17.0] - 2026-07-13
 
 ### Added
